@@ -7,6 +7,7 @@ $().ready(function () {
                 required: true,
                 text: true,
                 digits: true,
+                pattern : '[A-Za-z0-9]'
 
             },
 
@@ -16,16 +17,16 @@ $().ready(function () {
                 digits: true,
                 maxlength: 5,
             },
-          },
-            messages: {
-                orderNumber: "Please enter valid order number",
-                sum: {
-                    required: "Please enter sum",
-                    maxlength: "Sum mustn`t be more then 5 characters long"
+        },
+        messages: {
+            orderNumber: "Please enter valid order number",
+            sum: {
+                required: "Please enter sum",
+                maxlength: "Sum mustn`t be more then 5 characters long"
 
-                },
+            },
 
-            }
+        }
 
     });
 });

@@ -11,16 +11,17 @@
 
 
     <build>
+        <finalName>ROOT</finalName>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <webXml>src\main\web-app\WEB-INF\web.xml</webXml>
-                </configuration>
-            </plugin>
+            <!--     <plugin>
+                     <groupId>org.apache.maven.plugins</groupId>
+                     <artifactId>maven-war-plugin</artifactId>
+                     <configuration>
+                         <webXml>src\main\web-app\WEB-INF\web.xml</webXml>
+                     </configuration>
+                 </plug in>
 
-
+     -->
 
 
             <plugin>
@@ -71,7 +72,6 @@
             <artifactId>spring-web</artifactId>
             <version>4.0.3.RELEASE</version>
         </dependency>
-
 
 
         <!--Hibernate core + Hibernate entity manager-->

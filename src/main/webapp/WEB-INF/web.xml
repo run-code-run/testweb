@@ -9,10 +9,9 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            src/main/web-app/WEB-INF/config/spring-config.xml
+            /WEB-INF/config/spring-config.xml
         </param-value>
     </context-param>
-
 
 
     <listener>
@@ -21,19 +20,19 @@
 
 
     <servlet>
-        <servlet-name>default</servlet-name>
+        <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>src/main/web-app/WEB-INF/config/spring-config.xml</param-value>
+            <param-value>/WEB-INF/config/spring-config.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
 
     <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
 </web-app>
