@@ -1,28 +1,49 @@
 package testweb.controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import testweb.model.Currency;
+import testweb.model.EOrder;
+import testweb.service.RemoteCallService;
 
 @Controller
 public class OrderController {
 
-    @RequestMapping(value = "/testweb", method = RequestMethod.GET)
+
+    @Autowired
+    private RemoteCallService remoteCallService;
+
+    @RequestMapping(value = "/makeAnOrder", method = RequestMethod.GET)
     String makeAnOrder() {
         return "Order";
     }
 
 
-    //Если сумма заказа больше 5 тыс, то вернуть клиента обратно на страницу
-//    С сообщением "неправильная сумма", все ранее заполненные поля должны сохраниться
-    @RequestMapping(value = "/sendorder", method = RequestMethod.POST)
-    String validateOrde(@PathVariable Double sum, final Model model) {
-        if (sum > 5000D) {
-            model.addAttribute("message", "Wrong sum");
+    @RequestMapping(value = "/addOrder", method = RequestMethod.POST)
+    String validateOrder(@ModelAttribute("SpringWeb") EOrder eOrder, ModelMap model) {
+
+        if ((eOrder.getSum() > 5000D) && (eOrder.getCurrency().equals(Currency.USD))) {
+            model.addAttribute("status", "1");
         }
+
+        model.addAttribute("EOrder", eOrder);
+
+        return "Order";
+    }
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    String testEJB(ModelMap model) throws Exception {
+
+
+
+        int res = remoteCallService.getRemoteValue();
+
+        model.addAttribute("result", res);
         return "Result";
     }
 }

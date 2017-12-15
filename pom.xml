@@ -11,19 +11,8 @@
 
 
     <build>
-        <finalName>ROOT</finalName>
+        <finalName>testweb</finalName>
         <plugins>
-            <!--     <plugin>
-                     <groupId>org.apache.maven.plugins</groupId>
-                     <artifactId>maven-war-plugin</artifactId>
-                     <configuration>
-                         <webXml>src\main\web-app\WEB-INF\web.xml</webXml>
-                     </configuration>
-                 </plug in>
-
-     -->
-
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -32,6 +21,33 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+
+            <!--
+
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-war-plugin</artifactId>
+                            <configuration>
+                                <webXml>src\main\web-app\WEB-INF\web.xml</webXml>
+                            </configuration>
+                        </plugin>
+            -->
+
+
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>1.1.0.Alpha5</version>
+                <configuration>
+                    <hostname>127.0.0.1</hostname>
+                    <port>9990</port>
+                    <username>admin</username>
+                    <password>nimda</password>
+                    <name>testweb.war</name>
+                </configuration>
+            </plugin>
+
+
         </plugins>
     </build>
 
@@ -74,7 +90,100 @@
         </dependency>
 
 
-        <!--Hibernate core + Hibernate entity manager-->
+        <!-- https://mvnrepository.com/artifact/org.apache.maven/maven-plugin-api -->
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-plugin-api</artifactId>
+            <version>3.5.2</version>
+        </dependency>
+
+
+
+        <!--Custom Dependencies-->
+
+        <dependency>
+            <groupId>ejb-remote-interface</groupId>
+            <artifactId>ejb-remote-interface</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jboss-client</groupId>
+            <artifactId>jboss-client</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <!--END CUSTOM DEPENDENCIES-->
+
+
+        <!-- Import the transaction spec API, we use runtime scope because we aren't using any direct
+        reference to the spec API in our client code -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.transaction</groupId>
+            <artifactId>jboss-transaction-api_1.2_spec</artifactId>
+            <version>1.0.1.Final</version>
+            <scope>runtime</scope>
+        </dependency>
+
+
+
+        <!-- Import the EJB 3.1 API, we use runtime scope because we aren't using any direct
+         reference to EJB spec API in our client code -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.ejb</groupId>
+            <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+            <version>1.0.0.Final</version>
+            <scope>runtime</scope>
+        </dependency>
+
+
+        <!--TODO might conflict with upper jboss client dep-->
+        <!-- JBoss EJB client API jar. We use runtime scope because the EJB client API
+         isn't directly used in this example. We just need it in our runtime classpath -->
+        <dependency>
+            <groupId>org.jboss</groupId>
+            <artifactId>jboss-ejb-client</artifactId>
+            <version>4.0.9.Final</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.xnio</groupId>
+            <artifactId>xnio-api</artifactId>
+            <version>3.5.4.Final</version>
+            <scope>runtime</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.jboss.xnio</groupId>
+            <artifactId>xnio-nio</artifactId>
+            <version>3.5.4.Final</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- The client needs JBoss remoting to access the server -->
+        <dependency>
+            <groupId>org.jboss.remoting</groupId>
+            <artifactId>jboss-remoting</artifactId>
+            <version>5.0.5.Final</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Remote EJB accesses can be secured -->
+        <dependency>
+            <groupId>org.jboss.sasl</groupId>
+            <artifactId>jboss-sasl</artifactId>
+            <version>1.0.5.Final</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- data serialization for invoking remote EJBs -->
+        <dependency>
+            <groupId>org.jboss.marshalling</groupId>
+            <artifactId>jboss-marshalling-river</artifactId>
+            <version>2.0.2.Final</version>
+            <scope>runtime</scope>
+        </dependency>
 
     </dependencies>
 

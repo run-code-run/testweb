@@ -1,2 +1,4 @@
-/home/alex/IDEs/projects/testweb/src/main/java/testweb/YetAnotherClazz.java
 /home/alex/IDEs/projects/testweb/src/main/java/testweb/controller/OrderController.java
+/home/alex/IDEs/projects/testweb/src/main/java/testweb/model/Currency.java
+/home/alex/IDEs/projects/testweb/src/main/java/testweb/model/EOrder.java
+/home/alex/IDEs/projects/testweb/src/main/java/testweb/service/RemoteCallService.java
