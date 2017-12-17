@@ -115,6 +115,12 @@
 
         <!--END CUSTOM DEPENDENCIES-->
 
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+
 
         <!-- Import the transaction spec API, we use runtime scope because we aren't using any direct
         reference to the spec API in our client code -->

@@ -1,4 +1,2 @@
 testweb/controller/OrderController.class
 testweb/service/RemoteCallService.class
-testweb/model/EOrder.class
-testweb/model/Currency.class
