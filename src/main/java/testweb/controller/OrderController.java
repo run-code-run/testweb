@@ -54,7 +54,6 @@ public class OrderController {
             return "Order";
         }
 
-
         try {
 
             remoteCallService.placeNewOrder(eOrder);
