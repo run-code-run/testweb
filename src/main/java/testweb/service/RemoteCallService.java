@@ -2,7 +2,6 @@ package testweb.service;
 
 import org.springframework.stereotype.Service;
 import testejb.bean.OrderBean;
-import testejb.bean.RemoteCalculator;
 import testejb.persistence.EOrderEntity;
 
 import javax.naming.Context;
@@ -24,18 +23,6 @@ public class RemoteCallService {
     }
 
 
-    //Invoke statelessbean
-    public int getRemoteValue() throws NamingException {
-
-        final RemoteCalculator statelessRemoteCalculator = lookupRemoteStatelessCalculator();
-
-        int a = 15;
-        int b = 20;
-
-        return statelessRemoteCalculator.add(a, b);
-    }
-
-
     //TODO REimplement caz returnstatement
     public boolean placeNewOrder(EOrderEntity eOrder) throws NamingException, RemoteException {
 
@@ -44,15 +31,6 @@ public class RemoteCallService {
         orderBean.addOrder(eOrder);
 
         return true;
-    }
-
-    private static RemoteCalculator lookupRemoteStatelessCalculator() throws NamingException {
-
-        final Hashtable jndiProperties = new Hashtable();
-        jndiProperties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
-        final Context context = new InitialContext(jndiProperties);
-
-        return (RemoteCalculator) context.lookup("ejb:/testejb/CalculatorBean!" + RemoteCalculator.class.getName());
     }
 
     private static OrderBean lookupRemoteStatelessOrderBean() throws NamingException {

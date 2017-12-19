@@ -62,18 +62,7 @@ public class OrderController {
             e.printStackTrace();
         }
 
-
         return "Order";
     }
 
-
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    String testEJB(ModelMap model) throws Exception {
-
-
-        int res = remoteCallService.getRemoteValue();
-
-        model.addAttribute("result", res);
-        return "Result";
-    }
 }
