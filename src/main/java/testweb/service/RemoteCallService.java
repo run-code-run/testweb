@@ -2,7 +2,7 @@ package testweb.service;
 
 import org.springframework.stereotype.Service;
 import testejb.bean.OrderBean;
-import testejb.persistence.EOrderEntity;
+import entities.EOrderEntity;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;

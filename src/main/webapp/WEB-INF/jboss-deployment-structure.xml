@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2">
+    <deployment>
+        <dependencies>
+            <!-- <module name="org.jboss.as.ejb3" export="true"/>
+             <module name="org.apache.activemq.artemis"/>-->
+
+            <module name="javax.api" export="true"/>
+            <module name="org.entity" export="true"/>
+            <module name="org.hibernate"/>
+        </dependencies>
+    </deployment>
+</jboss-deployment-structure>

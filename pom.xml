@@ -52,6 +52,7 @@
     </build>
 
 
+
     <dependencies>
 
         <dependency>
@@ -101,9 +102,17 @@
 
         <!--Custom Dependencies-->
 
+
         <dependency>
             <groupId>ejb-remote-interface</groupId>
             <artifactId>ejb-remote-interface</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>entity-model</groupId>
+            <artifactId>entity-model</artifactId>
             <version>1.0</version>
         </dependency>
 

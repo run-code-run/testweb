@@ -56,6 +56,7 @@
     <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-utils:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-classworlds:2.5.2" level="project" />
     <orderEntry type="library" name="Maven: ejb-remote-interface:ejb-remote-interface:1.0" level="project" />
+    <orderEntry type="library" name="Maven: entity-model:entity-model:1.0" level="project" />
     <orderEntry type="library" name="Maven: jboss-client:jboss-client:1.0" level="project" />
     <orderEntry type="library" name="Maven: jstl:jstl:1.2" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.0.1.Final" level="project" />

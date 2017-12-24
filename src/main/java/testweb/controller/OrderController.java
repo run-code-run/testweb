@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import testejb.persistence.EOrderEntity;
-import testejb.persistence.CurrencyEntity;
-import testweb.service.RemoteCallService;
 
+
+import testweb.service.RemoteCallService;
+import entities.CurrencyEntity;
+import entities.EOrderEntity;
 import javax.naming.NamingException;
 import java.rmi.RemoteException;
 import java.util.List;
@@ -34,6 +35,7 @@ public class OrderController {
         } catch (NamingException | RemoteException e) {
             e.printStackTrace();
         }
+
 
         return "OrdersList";
     }
